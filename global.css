@@ -1,0 +1,15 @@
+
+@font-face {
+    font-family: sugar;
+    src: url("/assets/fonts/nice_sugar.ttf");
+}
+
+@font-face {
+    font-family: coffee;
+    src: url("/assets/fonts/take_coffee.ttf");
+}
+
+
+h2 {
+    font-family: 'sugar', serif;
+}
