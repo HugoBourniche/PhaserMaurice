@@ -1,4 +1,4 @@
-import {buildColorRangeFromList} from "../utils/color-utils";
+import {buildColorRange} from "../utils/color-utils";
 
 export default class ColorAnimationHandler {
 
@@ -9,10 +9,10 @@ export default class ColorAnimationHandler {
 
     constructor(colors: string[]) {
         this.colors = colors;
-        this.colorRange = buildColorRangeFromList(colors);
+        this.colorRange = buildColorRange(colors[0], colors[1]);
     }
 
     public animateColor() {
-        return this.colors[(this.index++)%this.colors.length];
+        return this.colorRange[(this.index++)%this.colorRange.length];
     }
 }

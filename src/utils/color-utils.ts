@@ -1,4 +1,5 @@
 import {randomInt} from "./utils";
+import chroma from "chroma-js";
 
 export function generateRandomColor() {
         const max = 255;
@@ -22,9 +23,13 @@ export function buildColorRangeFromList(colors: string[]): string[] {
 
 /**
  * Build a color range from boundaries
- * @param color1: First color boundary
- * @param color2: Second color boundary
+ * @param startColor: First color boundary
+ * @param endColor: Second color boundary
  */
-export function buildColorRange(color1: string, color2: string): string[] {
-        return [color1, color2];
+export function buildColorRange(startColor: string, endColor: string): string[] {
+        const startChroma = chroma(startColor)
+        const endChroma = chroma(endColor)
+
+        return chroma.scale([startChroma, endChroma])
+            .colors(5)
 }
