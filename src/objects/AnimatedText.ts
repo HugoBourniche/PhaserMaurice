@@ -1,7 +1,6 @@
 import Phaser from "phaser";
 import TextStyle from "./TextStyle";
 import Text = Phaser.GameObjects.Text;
-import {generateRandomColor} from "../utils";
 import {TIME_50MS} from "../cst";
 import AnimationData from "./AnimationData";
 
@@ -61,7 +60,7 @@ export default class AnimatedText {
             characterObject.setVelocityY(animationData.velocityY);
         }
 
-        text.setColor(generateRandomColor());
+        // text.setColor(generateRandomColor());
 
         if (text.y > this.startPositionY + animationData.borderBot) {
             characterObject.setVelocityY(-animationData.velocityY);
