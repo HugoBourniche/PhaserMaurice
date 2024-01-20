@@ -13,8 +13,9 @@ export default class MainScene extends Phaser.Scene {
 
     preload() {
         this.load.setBaseURL("./assets/");
-        this.load.image('maurice', 'images/maurice_draw_colorful.png')
-        this.load.image('background-sea', 'images/background-sea.png')
+        this.load.image('maurice', 'images/maurice_draw_colorful.png');
+        this.load.image('background-sea', 'images/background-sea.png');
+        this.load.spritesheet('maurice-anim', 'images/maurice_anim.png', { frameWidth: 500, frameHeight: 500 });
     }
 
     create() {
@@ -23,8 +24,14 @@ export default class MainScene extends Phaser.Scene {
         background.setY(DEFAULT_HEIGHT_POSITION + 10);
         this.animatedText = new AnimatedText(20, 20, 'Stream is starting', 50, 'sugar', this);
 
-        const image = this.physics.add.image(400, 300, 'maurice');
+        this.anims.create({
+            key:'swim',
+            frames: this.anims.generateFrameNumbers('maurice-anim', {}),
+            frameRate: 2
+        });
+        const image = this.physics.add.sprite(400, 300, 'maurice-anim');
         image.setScale(0.2, 0.2);
+        image.play({key:'swim', repeat: -1});
         image.setVelocity(200, 50);
         image.setCollideWorldBounds(true, 1, 1);
     }
