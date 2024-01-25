@@ -2,6 +2,8 @@ import {ColorAnimationType} from "../../objects/colorAnimations/ColorAnimationTy
 import DefaultColorAnimation from "../../objects/colorAnimations/DefaultColorAnimation";
 import BlinkColorAnimation from "../../objects/colorAnimations/BlinkColorAnimation";
 import RandomColorAnimation from "../../objects/colorAnimations/RandomColorAnimation";
+import FadingBlinkColorAnimation from "../../objects/colorAnimations/FadingBlinkColorAnimation";
+import FadingColorAnimation from "../../objects/colorAnimations/FadingColorAnimation";
 
 export class ColorAnimationFactory {
 
@@ -14,6 +16,8 @@ export class ColorAnimationFactory {
         switch (colorAnimation) {
             case ColorAnimationType.BLINK: return new BlinkColorAnimation(colors);
             case ColorAnimationType.RANDOM: return new RandomColorAnimation(colors);
+            case ColorAnimationType.FADING: return new FadingColorAnimation(colors);
+            case ColorAnimationType.FADING_BLINK: return new FadingBlinkColorAnimation(colors);
             case ColorAnimationType.DEFAULT:
             default: return new DefaultColorAnimation(colors);
 

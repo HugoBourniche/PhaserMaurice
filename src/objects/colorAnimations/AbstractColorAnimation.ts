@@ -4,7 +4,6 @@ export abstract class AbstractColorAnimation {
 
     protected index: number;
     protected colors: string[];
-    abstract colorRange: string[];
 
     protected constructor(colors: string[]) {
         this.index = 0;

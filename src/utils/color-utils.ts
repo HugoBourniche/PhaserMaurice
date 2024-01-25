@@ -1,12 +1,16 @@
 import * as chroma from "chroma.ts";
 
+/**
+ * Generate a random color written life that #FE109C
+ */
 export function generateRandomColor(): string {
         return chroma.random().toString();
 }
 
 /**
  * Build a color range from a list of colors
- * @param colors: First color boundary
+ * @param colors First color boundary
+ * @param scaleRange Range of colors to create, default value = 10
  */
 export function buildColorRangeFromList(colors: string[], scaleRange: number = 10): string[] {
         if (colors.length === 0) {
@@ -14,14 +18,4 @@ export function buildColorRangeFromList(colors: string[], scaleRange: number = 1
         }
         return chroma.scale(colors)
             .colors(scaleRange);
-}
-
-
-/**
- * Build a color range from boundaries
- * @param startColor: First color boundary
- * @param endColor: Second color boundary
- */
-export function buildColorRange(startColor: string, endColor: string): string[] {
-        return buildColorRangeFromList([startColor, endColor]);
 }
