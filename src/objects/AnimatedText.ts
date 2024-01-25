@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import TextStyle from "./TextStyle";
-import {TIME_50MS} from "../cst";
-import AnimationData from "./AnimationData";
+import {COLOR_ANIMATION, TIME_50MS} from "../cst";
+import AnimationParams from "./AnimationParams";
 import AnimatedCharacter from "./AnimatedCharacter";
 
 export default class AnimatedText {
@@ -25,13 +25,12 @@ export default class AnimatedText {
         this.startPositionY = y;
         this.textStyle = new TextStyle(fontSize, fontFamily);
         this.characterList = [];
-        this. buildCharacters(colors);
+        this.buildCharacters(colors);
     }
 
     public animate(time: number): void {
-        // Every second
         const timeSpent = time - this.previousTime;
-        if (timeSpent >= TIME_50MS) {
+        if (timeSpent >= TIME_50MS) { // Every 50ms
             this.previousTime = time;
             this.triggerAnimation();
         }
@@ -39,10 +38,11 @@ export default class AnimatedText {
 
     private triggerAnimation() {
         // Constants
-        const animationData = new AnimationData();
+        const animationData = new AnimationParams();
         animationData.velocityY = 10;
         animationData.borderTop = -5;
         animationData.borderBot = 10;
+        animationData.colorAnimation = COLOR_ANIMATION;
 
         this.animateCharacters(animationData);
         this.startingAnimationOfX++;
@@ -53,7 +53,7 @@ export default class AnimatedText {
      * @param animationData: Constants about the animation information
      * @private
      */
-    private animateCharacters(animationData: AnimationData) {
+    private animateCharacters(animationData: AnimationParams) {
         for (let animatedCharacter of this.characterList) {
             animatedCharacter.animate(this.startingAnimationOfX, animationData);
         }
