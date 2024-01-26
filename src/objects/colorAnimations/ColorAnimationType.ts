@@ -4,5 +4,6 @@ export enum ColorAnimationType {
     DEFAULT,
     FADING,
     FADING_BLINK,
+    FADING_RANDOM,
     RANDOM
 }

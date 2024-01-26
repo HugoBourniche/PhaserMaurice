@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import TextStyle from "./TextStyle";
-import {COLOR_ANIMATION, TIME_50MS} from "../cst";
+import {COLOR_ANIMATION, CURRENT_ANIMATION_FRAME_RATE} from "../cst";
 import AnimationParams from "./AnimationParams";
 import AnimatedCharacter from "./AnimatedCharacter";
 
@@ -30,7 +30,7 @@ export default class AnimatedText {
 
     public animate(time: number): void {
         const timeSpent = time - this.previousTime;
-        if (timeSpent >= TIME_50MS) { // Every 50ms
+        if (timeSpent >= CURRENT_ANIMATION_FRAME_RATE) { // Every 50ms
             this.previousTime = time;
             this.triggerAnimation();
         }

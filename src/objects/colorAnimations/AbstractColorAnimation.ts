@@ -4,10 +4,12 @@ export abstract class AbstractColorAnimation {
 
     protected index: number;
     protected colors: string[];
+    protected characterPosition: number;
 
-    protected constructor(colors: string[]) {
+    protected constructor(colors: string[], characterPosition: number) {
         this.index = 0;
         this.colors = colors;
+        this.characterPosition = characterPosition;
     }
 
     abstract animateColor(): string;

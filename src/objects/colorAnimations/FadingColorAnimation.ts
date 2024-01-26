@@ -3,11 +3,13 @@ import {AbstractColorRangeAnimation} from "./AbstractColorRangeAnimation";
 
 export default class FadingColorAnimation extends AbstractColorRangeAnimation {
 
-    isIndexIncreasing: boolean;
+    protected isIndexIncreasing: boolean;
+    protected colorScale = 20;
 
-    constructor(colors: string[]) {
-        super(colors, 20);
+    constructor(colors: string[], colorScale: number = 20) {
+        super(colors, 0, colorScale);
         this.isIndexIncreasing = true;
+        this.colorScale = colorScale;
     }
 
     animateColor(): string {

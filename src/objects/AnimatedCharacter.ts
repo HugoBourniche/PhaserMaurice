@@ -25,7 +25,7 @@ export default class AnimatedCharacter {
         this._index = index;
         this._startX = startX;
         this._startY = startY;
-        this._colorAnimation = ColorAnimationFactory.build(ColorAnimationType.DEFAULT, colors);
+        this._colorAnimation = ColorAnimationFactory.build(ColorAnimationType.DEFAULT, colors, index);
     }
 
     // *****************************************************************************************************************
@@ -53,7 +53,7 @@ export default class AnimatedCharacter {
             if (animationParams.color.length === 0) {
                 animationParams.color = this._colorAnimation.getOriginalColors();
             }
-            this._colorAnimation = ColorAnimationFactory.build(animationParams.colorAnimation, animationParams.color);
+            this._colorAnimation = ColorAnimationFactory.build(animationParams.colorAnimation, animationParams.color, this.index);
         }
         text.setColor(this._colorAnimation.animateColor());
     }

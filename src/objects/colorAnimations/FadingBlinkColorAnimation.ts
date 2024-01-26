@@ -4,7 +4,7 @@ import {AbstractColorRangeAnimation} from "./AbstractColorRangeAnimation";
 export default class FadingBlinkColorAnimation extends AbstractColorRangeAnimation {
 
     constructor(colors: string[]) {
-        super(colors);
+        super(colors, 0);
     }
 
     animateColor(): string {

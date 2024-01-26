@@ -4,8 +4,8 @@ import {ColorAnimationType} from "./ColorAnimationType";
 
 export default class RandomColorAnimation extends AbstractColorAnimation {
 
-    constructor(colors: string[]) {
-        super(colors);
+    constructor() {
+        super([], 0);
     }
 
     animateColor(): string {

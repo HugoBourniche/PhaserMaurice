@@ -15,4 +15,5 @@ export const TIME_50MS = 50;
 // Live short cuts
 
 export const TITLE_TEXT = "stream is starting";
-export const COLOR_ANIMATION = ColorAnimationType.FADING; // / BLINK / DEFAULT / FADING / FADING_BLINK / RANDOM
+export const CURRENT_ANIMATION_FRAME_RATE = TIME_50MS;
+export const COLOR_ANIMATION = ColorAnimationType.FADING_RANDOM; // / BLINK / DEFAULT / FADING / FADING_BLINK / FADING_RANDOM / RANDOM

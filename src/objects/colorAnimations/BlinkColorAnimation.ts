@@ -4,7 +4,7 @@ import {ColorAnimationType} from "./ColorAnimationType";
 export default class BlinkColorAnimation extends AbstractColorAnimation {
 
     constructor(colors: string[]) {
-        super(colors);
+        super(colors, 0);
     }
 
     animateColor(): string {
