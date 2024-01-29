@@ -1,6 +1,6 @@
-import {ColorAnimationType} from "./ColorAnimationType";
-import {buildColorRangeFromList, generateRandomColor} from "../../utils/color-utils";
-import {AbstractColorRangeAnimation} from "./AbstractColorRangeAnimation";
+import {ColorAnimationType} from "../ColorAnimationType";
+import {buildColorRangeFromList, generateRandomColor} from "../../../utils/color-utils";
+import {AbstractColorRangeAnimation} from "../AbstractColorRangeAnimation";
 
 export default class FadingRandomColorAnimation extends AbstractColorRangeAnimation {
 

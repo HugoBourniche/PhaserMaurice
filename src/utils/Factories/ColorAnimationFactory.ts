@@ -1,10 +1,11 @@
 import {ColorAnimationType} from "../../objects/colorAnimations/ColorAnimationType";
-import DefaultColorAnimation from "../../objects/colorAnimations/DefaultColorAnimation";
-import BlinkColorAnimation from "../../objects/colorAnimations/BlinkColorAnimation";
-import RandomColorAnimation from "../../objects/colorAnimations/RandomColorAnimation";
-import FadingBlinkColorAnimation from "../../objects/colorAnimations/FadingBlinkColorAnimation";
-import FadingColorAnimation from "../../objects/colorAnimations/FadingColorAnimation";
-import FadingRandomColorAnimation from "../../objects/colorAnimations/FadingRandomColorAnimation";
+import DefaultColorAnimation from "../../objects/colorAnimations/implementations/DefaultColorAnimation";
+import BlinkColorAnimation from "../../objects/colorAnimations/implementations/BlinkColorAnimation";
+import RandomColorAnimation from "../../objects/colorAnimations/implementations/RandomColorAnimation";
+import FadingBlinkColorAnimation from "../../objects/colorAnimations/implementations/FadingBlinkColorAnimation";
+import FadingColorAnimation from "../../objects/colorAnimations/implementations/FadingColorAnimation";
+import FadingRandomColorAnimation from "../../objects/colorAnimations/implementations/FadingRandomColorAnimation";
+import BlinkRandomColorAnimation from "../../objects/colorAnimations/implementations/BlinkRandomColorAnimation";
 
 export class ColorAnimationFactory {
 
@@ -16,11 +17,12 @@ export class ColorAnimationFactory {
      */
     public static build(colorAnimation: ColorAnimationType, colors: string[], characterPosition: number) {
         switch (colorAnimation) {
-            case ColorAnimationType.BLINK: return new BlinkColorAnimation(colors);
-            case ColorAnimationType.RANDOM: return new RandomColorAnimation();
-            case ColorAnimationType.FADING: return new FadingColorAnimation(colors);
-            case ColorAnimationType.FADING_BLINK: return new FadingBlinkColorAnimation(colors);
-            case ColorAnimationType.FADING_RANDOM: return new FadingRandomColorAnimation(characterPosition);
+            case ColorAnimationType.BLINK:          return new BlinkColorAnimation(colors);
+            case ColorAnimationType.BLINK_RANDOM:   return new BlinkRandomColorAnimation(colors, characterPosition);
+            case ColorAnimationType.RANDOM:         return new RandomColorAnimation();
+            case ColorAnimationType.FADING:         return new FadingColorAnimation(colors);
+            case ColorAnimationType.FADING_BLINK:   return new FadingBlinkColorAnimation(colors);
+            case ColorAnimationType.FADING_RANDOM:  return new FadingRandomColorAnimation(characterPosition);
             case ColorAnimationType.DEFAULT:
             default: return new DefaultColorAnimation(colors);
 

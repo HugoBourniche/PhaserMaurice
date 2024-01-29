@@ -1,5 +1,5 @@
-import {ColorAnimationType} from "./ColorAnimationType";
-import {AbstractColorRangeAnimation} from "./AbstractColorRangeAnimation";
+import {ColorAnimationType} from "../ColorAnimationType";
+import {AbstractColorRangeAnimation} from "../AbstractColorRangeAnimation";
 
 export default class FadingColorAnimation extends AbstractColorRangeAnimation {
 

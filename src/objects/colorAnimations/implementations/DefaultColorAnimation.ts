@@ -1,5 +1,5 @@
-import {AbstractColorAnimation} from "./AbstractColorAnimation";
-import {ColorAnimationType} from "./ColorAnimationType";
+import {AbstractColorAnimation} from "../AbstractColorAnimation";
+import {ColorAnimationType} from "../ColorAnimationType";
 
 export default class DefaultColorAnimation extends AbstractColorAnimation {
 
